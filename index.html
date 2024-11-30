@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portofolio tita</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+            outline: none;
+            border: none;
+        }
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 35px 12%;
+            background: radial-gradient(#51a3ee, #4a3782);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo{
+            font-size: 35px;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        .logo:hover{
+            color: #51a3ee;
+            transform: scale(1.1);
+        }
+        span{
+            color: #4a3782;
+        }
+
+        .navbar a{
+            font-size: 18px;
+            color: white;
+            font-weight: 500;
+            margin: 0 20px;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s ease;
+        }
+        .navbar a:hover,
+        .navbar a.active{
+                color: #4a3782;
+                border-bottom: 3px solid #4a3782;
+        }
+        .contact{
+            padding: 10px 28px;
+            background-color: white;
+            color: #4a3782;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        .contact:hover{
+            background-color: #4a3782;
+            box-shadow: 0 0 25px #4a3782;
+            color: white;
+        }
+        
+        .home{
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgb(241, 241, 241);
+            display: flex;
+            align-items: center;
+            gap: 7em;
+            padding: 30px 12% 0;
+        }
+        .home-content{
+            max-width: 800px;
+        }
+        .home-content h3{
+            font-size: 20px;
+            margin-top: 125px;
+        }
+        .home-content h1{
+            font-size: 35px;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+        .home-content p{
+            font-size: 18px;
+            margin: 8px 0 30px;
+        }
+        .btn-box{
+            width: 390px;
+            height: 45px;
+            display: flex;
+            gap: 2em;
+        }
+        .btn-1{
+            padding: 10px 28px;
+            background-color: #4a3782;
+            color: white;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-1:hover{
+            background-color: white;
+            color: #4a3782;
+            border: 2px solid #4a3782;
+        }
+        .img-box img{
+            border-radius: 50%;
+            width: 350px;
+            margin-top: 100px;
+        }
+        ::-webkit-scrollbar{
+            width: 15px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: orangered;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+        }
+
+        .about{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12% 8%;
+            gap: 10em; 
+        }
+        .about-img img{
+            position: relative;
+            margin-top: 40px;
+            box-shadow: 0 0 25px #4a3782,
+                        0 0 50px #51a3ee;
+            border-radius: 50%;
+            width: 350px;
+        }
+        .about-content h2{
+            text-align: left;
+            color: black;
+            font-size: 40px;
+            margin-bottom: 3.1rem;
+            
+        }
+        .about-content h2:hover{
+            color: #51a3ee;
+            
+        }
+        .about-content h3{
+            font-size: 30px;
+            color: black;
+        }
+        .about-content p{
+            color: black;
+            font-size: 15px;
+            margin: 0.5em 0 3em;
+            margin-right: 75px;
+        }
+
+        .education{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: rgb(241, 241, 241);
+        }
+        .education h2{
+            margin-bottom: 3rem;
+            text-align: center;
+            font-size: 40px;
+        }
+        .education h2:hover{
+            color: #51a3ee;       
+        }
+        .education-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 20px;
+        }
+        .education-container .education-box{
+            flex: 1 1 10rem;
+            padding: 2rem 2rem 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: 0.2rem solid #4a3782;
+            cursor: pointer;
+            transition: 0.5s ease;   
+        }
+        .education-container .education-box:hover{
+            box-shadow: 0px 5px 20px 0px #4a3782;
+            border: 1px solid transparent;
+        }
+        .education-box{
+            font-size: 1rem;
+            color: white;
+            margin-top: 30px;
+        }
+        .education-box h5{
+            font-size: 15px;
+            color: #51a3ee;
+        }
+        .education-box h4{
+            font-size: 18px;
+            color: #4a3782;
+            margin-top: 2rem;
+        }
+        .education-box p{
+            font-size: 15px;
+            margin: 1rem 0 3rem;
+            color: #888;
+        }
+        ::-webkit-scrollbar{
+            width: 15px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: var(--main-color);
+        }
+        ::-webkit-scrollbar-track{
+            background-color: rgba(0, 0, 0, 0.608);
+            width: 50px;
+        }
+
+        .skills h2{
+            margin-bottom: 3rem;
+            text-align: center;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        .skills h2:hover{
+            color: #51a3ee; 
+        }
+        .skill-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 20px;
+        }
+        .skill-container .skills-box{
+            flex: 1 1 20rem;
+            background: radial-gradient(#4a3782, #51a3ee);
+            padding: 2rem 2rem 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: 0.2rem solid #4a3782;
+            cursor: pointer;
+            transition: 0.5s ease;           
+        }
+        .skill-container .skills-box:hover{
+            border-color: #4a3782;
+            transform: scale(1.02);
+        }
+        .skills-box{
+            font-size: 1rem;
+            color: white;
+        }
+        .skills-box i{
+            font-size: 7rem;
+            color: #4a3782;
+        }
+        .skills-box h3{
+            font-size: 25px;
+        }
+        .skills-box p{
+            font-size: 15px;
+            margin: 1rem 0 3rem;
+        }
+        ::-webkit-scrollbar{
+            width: 15px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: var(--main-color);
+        }
+        ::-webkit-scrollbar-track{
+            background-color: rgba(0, 0, 0, 0.608);
+            width: 50px;
+        }
+        .btn{
+            padding: 10px 28px;
+            background-color: #4a3782;
+            color: white;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        .btn:hover{
+            background-color: white;
+            border: 2px solid #4a3782;
+            color: #4a3782;
+        }
+
+        .project{
+            background-color: rgb(241, 241, 241);
+        }
+        .project h2{
+            margin-bottom: 5rem;
+            text-align: center;
+            font-size: 40px;
+        }
+        .project h2:hover{
+            color: #51a3ee;
+        }
+        .project-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 20px;
+            background-color: rgb(241, 241, 241);
+        }
+        .project-container .project-box{
+            flex: 1 1 30rem;
+            background: radial-gradient(#4a3782, #51a3ee);
+            padding: 2rem 2rem 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: 0.2rem solid #4a3782;
+            cursor: pointer;
+            transition: 0.5s ease;   
+        }
+        .project-container .project-box:hover{
+            border-color: #4a3782;
+            transform: scale(1.02);
+        }
+        .project-box{
+            font-size: 1rem;
+            color: white;
+        }
+        .project-box img{
+            font-size: 7rem;
+            color: #4a3782;
+            width: 500px;
+            border-radius: 0.3rem;
+        }
+        .project-box h3{
+            font-size: 25px;
+            margin-top: 10px;
+        }
+        .project-box p{
+            font-size: 15px;
+            margin: 1rem 0 3rem;
+        }
+
+        .contact-form h2{
+            text-align: center;
+            margin-top: 3em;
+            margin-bottom: 1em;
+            font-size: 40px;
+        }
+        .contact-form h2:hover{
+            color: #51a3ee;     
+        }
+        .contact-form form{
+            max-width: 50em;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3em;
+        }
+        .contact-form form .input-box{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-form form .input-box input,
+        .contact-form form textarea{
+            width: 100%;
+            padding: 1.5em;
+            font-size: 18px;
+            color: black;
+            background: rgb(241, 241, 241);
+            border-radius: .8rem;
+            margin: 1rem 0;
+            resize: none;
+            border: 0.2rem solid #4a3782;
+        }
+
+        .footer{
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 40px 0;
+            background: radial-gradient(#51a3ee, #4a3782);;
+        }
+        .footer .social{
+            text-align: center;
+            padding-bottom: 25px;
+            color: white;
+        }
+        .footer .social a{
+            font-size: 24px;
+            color: white;
+            border: 2px solid #4a3782;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 8px;
+            box-shadow: inset 0 0 10px #4a3782, 0 0 10px #4a3782;
+            transition: 0.3s ease;
+        }
+        .footer .social a:hover{
+            transform: scale(1.2)translateY(-10px);
+            color: #4a3782;
+            border: 2px solid #4a3782;
+        }
+        .footer .copyright{
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+
+
+        @media(max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:991px){
+    header{
+        padding: 2rem 3%;
+    }
+    section{
+        padding: 10rem 3% 2rem;
+    }
+    .services{
+        padding-bottom: 7rem;
+    }
+    .portofolio{
+        padding-bottom: 7rem;
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="" class="logo"><span>Tit</span>taw</a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Project</a>
+        </nav>
+
+        <a href="#contact" class="contact">Contact Me</a>
+    </header>
+    <section id="home" class="home">
+        <div class="home-content">
+            <h3>Hello</h3>
+
+            <h1>I'm <span>Tita<br></span>a Frontend Developer</h1>
+
+            <p>a web developer with a passion for building responsive,
+                attractive and easy to use websites.</p>
+
+            <div class="btn-box">
+                <buuton class="btn-1">Download CV</buuton>   
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="home.png" alt="">
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="about.png" alt="">
+        </div>
+        <div class="about-content">
+            <h2 class="heading"> <span>About</span> Me </h2>
+            <h3>Frontend <span>Developer</span></h3>
+            <p>Halo! I am Tita Sumarni, a web developer with a passion for building responsive, attractive and easy-to-use websites. I master several programming languages, including HTML, CSS, JavaScript, and PHP. I always try to update my skills with the latest technology and create efficient, well-performing Web sites. I believe that a good website can provide a positive experience for both the business and its users.</p> 
+        </div>
+    </section>
+
+    <section  class="education">
+        <br id="education"><br><br><br><br><br><br>
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-box">
+                <h5>2012 - 2013</h5>
+                <h4>TK Al-Azhar</h4>
+                <p></p>
+            </div>
+            <div class="education-box">
+                <h5>2014 - 2019</h5>
+                <h4>SD Negeri Sukamenak ll</h4>
+                <p></p>
+            </div>
+            <div class="education-box">
+                <h5>2020 - 2022</h5>
+                <h4>SMP Negeri 2 Maja</h4>
+                <p></p>
+            </div>
+            <div class="education-box">
+                <h5>2023 - Now</h5>
+                <h4>SMK Negeri 1 Maja</h4>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <section  class="skills">
+        <br id="skills"><br><br><br><br><br><br>
+        <h2><span>My</span> Skills</h2>
+        <div class="skill-container">
+            <div class="skills-box">
+                <i class='bx bxl-html5' ></i>
+                <h3>HTML</h3>
+                <p>Saya menguasai dalam menggunakan HTML untuk membangun website yang dinamis dan interaktif. Saya menguasai konsep HTML dynamic attributes dan bisa menggunakan CSS untuk mengatur tampilan website, dan JavaScript untuk menambahkan fungsional pada website.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="skills-box">
+                <i class='bx bxl-css3' ></i>
+                <h3>CSS</h3>
+                <p>Saya menguasai CSS dasar dan dapat mengatur tampilan website dengan berbagai properti CSS seperti font, color, background, margin, padding, dan border. Kemampuan saya dalam CSS memungkinkan saya untuk membuat website yang memiliki tampilan yang menarik dan user-friendly.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="skills-box">
+                <i class='bx bxl-php' ></i>
+                <h3>PHP</h3>
+                <p>Saya menguasai PHP dasar dan dapat membangun website sederhana dengan berbagai fungsi PHP seperti variabel, operator, dan array. Saya juga menguasai konsep database seperti MySQL dan mampu membangun website yang terhubung dengan database.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="skills-box">
+                <i class='bx bxs-data' ></i>
+                <h3>SQL</h3>
+                <p>Saya menguasai SQL dasar dan dapat melakukan operasi dasar pada database seperti SELECT, INSERT, UPDATE, dan DELETE. Saya memahami pentingnya query yang efisien dan bisa menulis kode SQL yang mudah dibaca.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="skills-box">
+                <i class='bx bxl-figma' ></i>
+                <h3>Figma</h3>
+                <p>Saya menguasai figma dasar dan dapat membuat desain UI/UX sederhana dengan berbagai tools figma seperti frame, text, shapes, dan components. Dan kemampuan saya dalam figma memungkinkan saya untuk membuat prototipe yang cepat dan efisien.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="project">
+        <br id="project"><br><br><br><br><br><br>
+        <h2><span>My</span> Project</h2>
+        <div class="project-container">
+            <div class="project-box">
+                <img src="jelajah nusantara.png" alt="" style="height: 250px; width: 450px;">
+                <h3>Web Development</h3>
+                <p>Ini adalah salah satu hasil dari project pemrograman (Web Development) yang telah saya kerjakan bersama rekan-rekan (kelompok). Yang memiliki proses pengembangan web yang terstruktur dan efisien. Yang mampu menganalisis kebutuhan clien, membangun web yang fungsional, dan menguji kinerja serta keamanannya.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="project-box">
+                <img src="portofolio.png" alt="">
+                <h3>UI/UX</h3>
+                <p>Ini adalah salah satu hasil dari UI/UX design yang telah saya kerjakan. UI/UX design yang diciptakan untuk pengalaman pengguna yang positif, dapat membantu meningkatkan konversi, retensi, dan kepuasan pelanggan.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <br id="contact"> 
+        <h2 class="contact-me"><span>Contact</span> Me</h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" style="height: 50px;" placeholder="Full Name">
+                <input type="email" style="height: 50px;" placeholder="Email">
+            </div>
+            <div class="input-box">
+                <input type="number" style="height: 50px;" placeholder="Phone Number">
+                <input type="text" style="height: 50px;" placeholder="Subject">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" style="height: 150px;" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn-1">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
+            <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+            <a href="#"><i class='bx bxl-whatsapp' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+        </div>
+
+        <p class="copyright">&copy; Tittaw 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
